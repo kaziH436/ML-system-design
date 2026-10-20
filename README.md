@@ -102,3 +102,32 @@ fallback can be anthropic
 Vercel, liteLLM 
 - providing a proxy api key
 - rate limiters
+
+### Situation: Big sale and traffic jumps 20x, openAI starts returning rate limit execeeded
+#### Implementation
+have a contract with the LLM provider when how much requests come in  
+
+### How do we know everything was all right in the production at the end of day 
+Datadog, Langsmith, new relic, MLflow (also provide AL gateway)
+- P99 latency 
+- Any errors can be tracked
+- Latency, token consumption, cost
+- Functional evals: to make sure right tool calls are happening
+- an alert needs to be attached to the dashboard for any escalations
+
+### Messaging queues 
+Kafka, rabbitMQ
+- not only for message volumn
+- if an agent take minutes for a task, in those cases, the main application should continue serving others while the work is offloaded to the worker
+
+Terraform
+- IAC
+ 
+Gitub actions, Gitlab, Jenkins
+- CI/CD
+
+Cloud, AWS
+- Autoscaling: scaling pods based on load (requests)
+
+Server Side events 
+- In http requests, messages are send fully but for chatbots, the response are token by token
